@@ -1,0 +1,13 @@
+{
+    "name": "drgomesp/greppy",
+    "description": "The most awesome library for writting (humanized) regular expressions in PHP",
+    "authors": [
+        {
+            "name": "Daniel Ribeiro",
+            "email": "drgomesp@gmail.com"
+        }
+    ],
+    "require": {
+
+    }
+}
