@@ -25,6 +25,7 @@ class PatternTest extends \PHPUnit_Framework_TestCase
             [(new Pattern())->range('A', 'Z'), '/A-Z/'],
             [(new Pattern())->alternatives(['foo', 'bar']), '/foo|bar/'],
             [(new Pattern())->word(), '/\w/'],
+            [(new Pattern())->nonWord(), '/\W/'],
         ];
     }
 

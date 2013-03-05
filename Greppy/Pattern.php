@@ -36,6 +36,12 @@ class Pattern
         return $this;
     }
 
+    public function nonWord()
+    {
+        $this->symbols .= '\W';
+        return $this;
+    }
+
     public function __toString()
     {
         return '/' . $this->symbols . '/';
