@@ -1,13 +1,20 @@
 {
     "name": "drgomesp/greppy",
     "description": "The most awesome library for writting (humanized) regular expressions in PHP",
+    "type": "library",
+    "keywords": ["php", "regex"],
+    "homepage": "",
     "authors": [
         {
             "name": "Daniel Ribeiro",
             "email": "drgomesp@gmail.com"
         }
     ],
-    "require": {
-
-    }
+    "autoload": {
+        "psr-0": { "Greppy": "." }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "minimum-stability": "dev"
 }
