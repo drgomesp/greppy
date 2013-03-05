@@ -30,6 +30,12 @@ class Pattern
         return $this;
     }
 
+    public function word()
+    {
+        $this->symbols .= '\w';
+        return $this;
+    }
+
     public function __toString()
     {
         return '/' . $this->symbols . '/';

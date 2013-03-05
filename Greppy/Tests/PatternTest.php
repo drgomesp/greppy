@@ -23,7 +23,8 @@ class PatternTest extends \PHPUnit_Framework_TestCase
             [(new Pattern())->any(), '/./'],
             [(new Pattern())->literal('foo'), '/foo/'],
             [(new Pattern())->range('A', 'Z'), '/A-Z/'],
-            [(new Pattern())->alternatives(['foo', 'bar']), '/foo|bar/']
+            [(new Pattern())->alternatives(['foo', 'bar']), '/foo|bar/'],
+            [(new Pattern())->word(), '/\w/'],
         ];
     }
 
