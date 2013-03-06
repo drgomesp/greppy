@@ -4,7 +4,17 @@ namespace Greppy;
 
 class Pattern
 {
+    const DELIMITER_HASH = '#';
+    const DELIMITER_TILD = '~';
+    const DELIMITER_SLASH = '/';
+
+    private $delimiter;
     private $symbols;
+
+    public function __construct($delimiter = self::DELIMITER_SLASH)
+    {
+        $this->delimiter = $delimiter;
+    }
 
     public function any()
     {
@@ -44,6 +54,6 @@ class Pattern
 
     public function __toString()
     {
-        return '/' . $this->symbols . '/';
+        return $this->delimiter . $this->symbols . $this->delimiter;
     }
 }
