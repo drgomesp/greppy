@@ -58,6 +58,12 @@ class Pattern
         return $this;
     }
 
+    public function nonWhitespace()
+    {
+        $this->symbols .= '\S';
+        return $this;
+    }
+
     public function __toString()
     {
         return $this->delimiter . $this->symbols . $this->delimiter;

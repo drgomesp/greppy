@@ -27,6 +27,7 @@ class PatternTest extends \PHPUnit_Framework_TestCase
             [(new Pattern())->word(), '/\w/'],
             [(new Pattern())->nonWord(), '/\W/'],
             [(new Pattern())->whitespace(), '/\s/'],
+            [(new Pattern())->nonWhitespace(), '/\S/'],
         ];
     }
 
