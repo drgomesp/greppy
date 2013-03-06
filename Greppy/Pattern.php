@@ -82,6 +82,12 @@ class Pattern
         return $this;
     }
 
+    public function oneOrMore()
+    {
+        $this->symbols .= '+';
+        return $this;
+    }
+
     public function __toString()
     {
         return $this->delimiter . $this->symbols . $this->delimiter;
