@@ -20,16 +20,17 @@ class PatternTest extends \PHPUnit_Framework_TestCase
     public function providerPatterns()
     {
         return [
-            [(new Pattern())->any(), '/./'],
-            [(new Pattern())->literal('foo'), '/foo/'],
-            [(new Pattern())->range('A', 'Z'), '/A-Z/'],
-            [(new Pattern())->alternatives(['foo', 'bar']), '/foo|bar/'],
-            [(new Pattern())->word(), '/\w/'],
-            [(new Pattern())->nonWord(), '/\W/'],
-            [(new Pattern())->whitespace(), '/\s/'],
-            [(new Pattern())->nonWhitespace(), '/\S/'],
-            [(new Pattern())->digit(), '/\d/'],
-            [(new Pattern())->nonDigit(), '/\D/'],
+            [(new Pattern())->any()                        , '/./'],
+            [(new Pattern())->literal('foo')               , '/foo/'],
+            [(new Pattern())->range('A', 'Z')              , '/A-Z/'],
+            [(new Pattern())->alternatives(['foo', 'bar']) , '/foo|bar/'],
+            [(new Pattern())->word()                       , '/\w/'],
+            [(new Pattern())->nonWord()                    , '/\W/'],
+            [(new Pattern())->whitespace()                 , '/\s/'],
+            [(new Pattern())->nonWhitespace()              , '/\S/'],
+            [(new Pattern())->digit()                      , '/\d/'],
+            [(new Pattern())->nonDigit()                   , '/\D/'],
+            [(new Pattern())->any()->zeroOrMore()          , '/.*/'],
         ];
     }
 
