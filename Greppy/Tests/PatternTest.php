@@ -28,6 +28,8 @@ class PatternTest extends \PHPUnit_Framework_TestCase
             [(new Pattern())->nonWord(), '/\W/'],
             [(new Pattern())->whitespace(), '/\s/'],
             [(new Pattern())->nonWhitespace(), '/\S/'],
+            [(new Pattern())->digit(), '/\d/'],
+            [(new Pattern())->nonDigit(), '/\D/'],
         ];
     }
 

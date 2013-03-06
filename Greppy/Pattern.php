@@ -64,6 +64,18 @@ class Pattern
         return $this;
     }
 
+    public function digit()
+    {
+        $this->symbols .= '\d';
+        return $this;
+    }
+
+    public function nonDigit()
+    {
+        $this->symbols .= '\D';
+        return $this;
+    }
+
     public function __toString()
     {
         return $this->delimiter . $this->symbols . $this->delimiter;
