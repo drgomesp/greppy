@@ -8,10 +8,14 @@
         {
             "name": "Daniel Ribeiro",
             "email": "drgomesp@gmail.com"
+        },
+        {
+            "name": "Henrique Moody",
+            "email": "henriquemoody@gmail.com"
         }
     ],
     "autoload": {
-        "psr-0": { "Greppy": "." }
+        "psr-0": { "Greppy": "src/" }
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*"

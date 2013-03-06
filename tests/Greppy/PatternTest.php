@@ -1,8 +1,6 @@
 <?php
 
-namespace Greppy\Tests;
-
-use Greppy\Pattern;
+namespace Greppy;
 
 class PatternTest extends \PHPUnit_Framework_TestCase
 {
