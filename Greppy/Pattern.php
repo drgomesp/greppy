@@ -52,6 +52,12 @@ class Pattern
         return $this;
     }
 
+    public function whitespace()
+    {
+        $this->symbols .= '\s';
+        return $this;
+    }
+
     public function __toString()
     {
         return $this->delimiter . $this->symbols . $this->delimiter;
