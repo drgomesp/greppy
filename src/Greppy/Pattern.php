@@ -25,21 +25,21 @@ class Pattern
 
     public function literal($literal)
     {
-        $this->symbols .= $literal;
+        $this->symbols .= preg_quote($literal, $this->delimiter);
 
         return $this;
     }
 
     public function range($start, $end)
     {
-        $this->symbols .= "$start-$end";
+        $this->symbols .= "[{$start}-{$end}]";
 
         return $this;
     }
 
     public function alternatives(array $alternatives)
     {
-        $this->symbols .= implode('|', $alternatives);
+        $this->symbols .= '(' . implode('|', $alternatives) . ')';
 
         return $this;
     }
@@ -107,9 +107,21 @@ class Pattern
         return $this;
     }
 
-    public function __toString()
+    public function assemble()
     {
         return $this->delimiter . $this->symbols . $this->delimiter;
+    }
+
+    public function __toString()
+    {
+        $string = '';
+        try {
+            $string = $this->assemble();
+        } catch (\Exception $exception) {
+            trigger_error($exception->getMessage(), E_USER_ERROR);
+        }
+
+        return $string;
     }
 
 }
