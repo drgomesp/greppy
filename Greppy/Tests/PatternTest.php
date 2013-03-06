@@ -32,6 +32,7 @@ class PatternTest extends \PHPUnit_Framework_TestCase
             [(new Pattern())->nonDigit()                   , '/\D/'],
             [(new Pattern())->any()->zeroOrMore()          , '/.*/'],
             [(new Pattern())->any()->oneOrMore()           , '/.+/'],
+            [(new Pattern())->any()->optional()            , '/.?/'],
         ];
     }
 

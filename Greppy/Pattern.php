@@ -88,6 +88,12 @@ class Pattern
         return $this;
     }
 
+    public function optional()
+    {
+        $this->symbols .= '?';
+        return $this;
+    }
+
     public function __toString()
     {
         return $this->delimiter . $this->symbols . $this->delimiter;
