@@ -107,6 +107,13 @@ class Pattern
         return $this;
     }
 
+    public function repeatInterval($minimum, $maximum)
+    {
+        $this->symbols .= "{{$minimum},{$maximum}}";
+
+        return $this;
+    }
+
     public function assemble()
     {
         return $this->delimiter . $this->symbols . $this->delimiter;
