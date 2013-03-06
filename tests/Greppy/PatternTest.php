@@ -1,8 +1,6 @@
 <?php
 
-namespace Greppy\Tests;
-
-use Greppy\Pattern;
+namespace Greppy;
 
 class PatternTest extends \PHPUnit_Framework_TestCase
 {
@@ -21,9 +19,9 @@ class PatternTest extends \PHPUnit_Framework_TestCase
     {
         return [
             [(new Pattern())->any()                        , '/./'],
-            [(new Pattern())->literal('foo')               , '/foo/'],
-            [(new Pattern())->range('A', 'Z')              , '/A-Z/'],
-            [(new Pattern())->alternatives(['foo', 'bar']) , '/foo|bar/'],
+            [(new Pattern())->literal('f/oo')               , '/f\/oo/'],
+            [(new Pattern())->range('A', 'Z')              , '/[A-Z]/'],
+            [(new Pattern())->alternatives(['foo', 'bar']) , '/(foo|bar)/'],
             [(new Pattern())->word()                       , '/\w/'],
             [(new Pattern())->nonWord()                    , '/\W/'],
             [(new Pattern())->whitespace()                 , '/\s/'],
@@ -33,6 +31,7 @@ class PatternTest extends \PHPUnit_Framework_TestCase
             [(new Pattern())->any()->zeroOrMore()          , '/.*/'],
             [(new Pattern())->any()->oneOrMore()           , '/.+/'],
             [(new Pattern())->any()->optional()            , '/.?/'],
+            [(new Pattern())->any()->repeatInterval(2, 4)  , '/.{2,4}/'],
         ];
     }
 

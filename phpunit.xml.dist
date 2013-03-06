@@ -12,22 +12,20 @@
          bootstrap="./vendor/autoload.php">
     <testsuites>
         <testsuite name="Greppy Test Suite">
-            <directory>./Greppy/Tests</directory>
+            <directory>./tests</directory>
         </testsuite>
     </testsuites>
 
-	<filter>
-		<whitelist>
-			<directory suffix=".php">./Greppy</directory>
-			<exclude>
-				<directory suffix=".php">./Greppy/Tests</directory>
-			</exclude>
-		</whitelist>
-	</filter>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./Greppy</directory>
+        </whitelist>
+    </filter>
 
-	<logging>
-		<log type="coverage-html" target="/tmp/report/greppy" charset="UTF-8"
-			 yui="true" highlight="false"
-			 lowUpperBound="35" highLowerBound="70"/>
-	</logging>
+    <logging>
+        <log type="coverage-html" target="/tmp/report/greppy" charset="UTF-8"
+             yui="true" highlight="false"
+             lowUpperBound="35" highLowerBound="70"/>
+    </logging>
+
 </phpunit>
