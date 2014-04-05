@@ -46,4 +46,17 @@ class PatternSpec extends ObjectBehavior
         $this->exactly(".")->match(".")->shouldReturn(true);
         $this->exactly(".")->match(",")->shouldReturn(false);
     }
+    
+    function it_should_match_exactly_characters()
+    {
+        $characters = array("c", "m", "f");
+        
+        $this->exactly($characters)->match("can")->shouldReturn(true);
+        $this->exactly($characters)->match("man")->shouldReturn(true);
+        $this->exactly($characters)->match("fan")->shouldReturn(true);
+        
+        $this->exactly($characters)->match("dan")->shouldReturn(false);
+        $this->exactly($characters)->match("ran")->shouldReturn(false);
+        $this->exactly($characters)->match("pan")->shouldReturn(false);
+    }
 }

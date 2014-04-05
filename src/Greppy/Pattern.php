@@ -44,10 +44,13 @@ class Pattern
     {
         $this->subject = $subject;
         
-        return (bool) preg_match(
+        $match = (bool) preg_match(
             sprintf("%s%s%s", self::DELIMITER_SLASH, $this->pattern, self::DELIMITER_SLASH), 
             $subject
         );
+        
+        $this->pattern = null;
+        return $match;
     }
 
     /**
@@ -74,7 +77,12 @@ class Pattern
      */
     public function exactly($character)
     {
-        $this->pattern .= $character;
+        if (is_array($character)) {
+            $this->pattern .= sprintf("[%s]", implode("", $character));
+            return $this;
+        }
+        
+        $this->pattern .= sprintf("\%s", $character);
         return $this;
     }
 }
