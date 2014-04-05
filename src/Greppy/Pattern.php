@@ -42,15 +42,21 @@ class Pattern
      */
     public function match($subject)
     {
-        $this->subject = $subject;
-        
-        $match = (bool) preg_match(
-            sprintf("%s%s%s", self::DELIMITER_SLASH, $this->pattern, self::DELIMITER_SLASH), 
-            $subject
-        );
-        
+        $match = (bool) preg_match($this->assemblePattern(), $subject);
         $this->pattern = null;
         return $match;
+    }
+
+    /**
+     * Dumps the pattern.
+     *
+     * @return string
+     */
+    public function dump()
+    {
+        $pattern = $this->assemblePattern();
+        $this->pattern = null;
+        return $pattern;
     }
 
     /**
@@ -72,17 +78,20 @@ class Pattern
     }
 
     /**
-     * @param string $character
      * @return \Greppy\Pattern
      */
-    public function exactly($character)
+    public function literal()
     {
-        if (is_array($character)) {
-            $this->pattern .= sprintf("[%s]", implode("", $character));
-            return $this;
+        $characters = func_get_args();
+        $pattern = count($characters) > 1 ? "[%s]" : "%s";
+        
+        $escapedCharacters = array();
+        
+        foreach ($characters as $c) {
+            $escapedCharacters[] = ctype_alnum($c) ? $c : sprintf("\%s", $c);
         }
         
-        $this->pattern .= sprintf("\%s", $character);
+        $this->pattern .= sprintf($pattern, implode("", $escapedCharacters));
         return $this;
     }
 
@@ -115,11 +124,9 @@ class Pattern
     }
 
     /**
-     * Dumps the pattern.
-     * 
      * @return string
      */
-    public function dump()
+    protected function assemblePattern()
     {
         return sprintf("%s%s%s", self::DELIMITER_SLASH, $this->pattern, self::DELIMITER_SLASH);
     }

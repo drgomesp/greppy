@@ -31,8 +31,8 @@ class PatternSpec extends ObjectBehavior
     {
         $this->any()->dump()->shouldReturn("/./");
         $this->digit()->dump()->shouldReturn("/\d/");
-        $this->exactly(".")->dump()->shouldReturn("/\./");
-        $this->exactly("c", "m", "f")->dump()->shouldReturn("/[cmf]/");
+        $this->literal("@")->dump()->shouldReturn("/\@/");
+        $this->literal("c", "m", "f")->dump()->shouldReturn("/[cmf]/");
     }
 
     function it_should_match_any_single_character()
@@ -49,23 +49,21 @@ class PatternSpec extends ObjectBehavior
         $this->digit()->match("123")->shouldReturn(true);
     }
     
-    function it_should_match_exactly_character()
+    function it_should_match_literal_character()
     {
-        $this->exactly(".")->match(".")->shouldReturn(true);
-        $this->exactly(".")->match(",")->shouldReturn(false);
+        $this->literal(".")->match(".")->shouldReturn(true);
+        $this->literal(".")->match(",")->shouldReturn(false);
     }
     
-    function it_should_match_exactly_characters()
+    function it_should_match_literal_characters()
     {
-        $characters = array("c", "m", "f");
-        
-        $this->exactly($characters)->match("can")->shouldReturn(true);
-        $this->exactly($characters)->match("man")->shouldReturn(true);
-        $this->exactly($characters)->match("fan")->shouldReturn(true);
-        
-        $this->exactly($characters)->match("dan")->shouldReturn(false);
-        $this->exactly($characters)->match("ran")->shouldReturn(false);
-        $this->exactly($characters)->match("pan")->shouldReturn(false);
+        $this->literal("c", "m", "f")->match("can")->shouldReturn(true);
+        $this->literal("c", "m", "f")->match("man")->shouldReturn(true);
+        $this->literal("c", "m", "f")->match("fan")->shouldReturn(true);
+
+        $this->literal("c", "m", "f")->match("dan")->shouldReturn(false);
+        $this->literal("c", "m", "f")->match("ran")->shouldReturn(false);
+        $this->literal("c", "m", "f")->match("pan")->shouldReturn(false);
     }
     
     function it_should_match_range()
