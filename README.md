@@ -9,20 +9,31 @@ Feature Guide
 
 The PHP way:
 ```php
-preg_match("/./", "some text to match");
+preg_match("/./", "any"); // 1
 ```
 The Greppy way:
 ```php
-p::any()->match("some text to match");
+p::any()->match("any"); // true
 ```
 
 ### Matching any digit
 
 The PHP way:
 ```php
-preg_match("/\d/", "some text that contains a digit: 10");
+preg_match("/\d/", "5"); // 1
 ```
 The Greppy way:
 ```php
-p::digit()->match("some text that contains a digit: 10");
+p::digit()->match("5"); // true
+```
+
+### Matching an exact character
+
+The PHP way:
+```php
+preg_match("/e/", "hey"); // 1
+```
+The Greppy way:
+```php
+p::exact("e")->match("hey"); // true
 ```
