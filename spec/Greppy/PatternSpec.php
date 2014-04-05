@@ -14,12 +14,6 @@ namespace spec\Greppy;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-/**
- * Pattern spec.
- *
- * @author Daniel Ribeiro <drgomesp@gmail.com>
- * @package spec\Greppy
- */
 class PatternSpec extends ObjectBehavior
 {
     function it_is_initializable()

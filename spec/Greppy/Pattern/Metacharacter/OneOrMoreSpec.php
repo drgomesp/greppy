@@ -16,5 +16,13 @@ use PhpSpec\ObjectBehavior;
 
 class OneOrMoreSpec extends ObjectBehavior
 {
-    
+    function it_is_initializable()
+    {
+        $this->shouldHaveType('Greppy\Pattern\Metacharacter\OneOrMore');
+    }
+
+    function it_should_be_castable_to_string()
+    {
+        $this->__toString()->shouldReturn("+");
+    }
 }

@@ -16,5 +16,13 @@ use PhpSpec\ObjectBehavior;
 
 class AnySpec extends ObjectBehavior
 {
+    function it_is_initializable()
+    {
+        $this->shouldHaveType('Greppy\Pattern\Metacharacter\Any');
+    }
     
+    function it_should_be_castable_to_string()
+    {
+        $this->__toString()->shouldReturn(".");
+    }
 }
