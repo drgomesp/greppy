@@ -67,4 +67,14 @@ class Pattern
         $this->pattern .= "\d";
         return $this;
     }
+
+    /**
+     * @param string $character
+     * @return \Greppy\Pattern
+     */
+    public function exactly($character)
+    {
+        $this->pattern .= $character;
+        return $this;
+    }
 }

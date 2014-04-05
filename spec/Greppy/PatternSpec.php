@@ -39,8 +39,14 @@ class PatternSpec extends ObjectBehavior
     
     function it_should_match_any_digit()
     {
-        $this->digit()->match("1")->shouldReturn(true);   
-        $this->digit()->match("12")->shouldReturn(true);   
-        $this->digit()->match("123")->shouldReturn(true);   
+        $this->digit()->match("1")->shouldReturn(true);
+        $this->digit()->match("12")->shouldReturn(true);
+        $this->digit()->match("123")->shouldReturn(true);
+    }
+    
+    function it_should_match_exactly_character()
+    {
+        $this->exactly(".")->match(".")->shouldReturn(true);
+        $this->exactly(".")->match(",")->shouldReturn(false);
     }
 }
