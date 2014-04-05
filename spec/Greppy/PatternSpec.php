@@ -37,9 +37,8 @@ class PatternSpec extends ObjectBehavior
 
     function it_should_match_any_single_character()
     {
-        $this->any()->match("123")->shouldReturn(true);
-        $this->any()->match("abc")->shouldReturn(true);
-        $this->any()->match("?=+")->shouldReturn(true);
+        $this->any()->match("a")->shouldReturn(true);
+        $this->any()->match("")->shouldReturn(false);
     }
     
     function it_should_match_any_digit()
