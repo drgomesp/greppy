@@ -27,9 +27,6 @@ class PatternSpec extends ObjectBehavior
         $this->shouldHaveType('Greppy\Pattern');
     }
 
-    /**
-     * preg_match("/./", "123. abc ?=+")
-     */
     function it_should_match_any_single_character()
     {
         $this->any()->match("123")->shouldReturn(true);
