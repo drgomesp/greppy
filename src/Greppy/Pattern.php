@@ -58,4 +58,13 @@ class Pattern
         $this->pattern .= ".";
         return $this;
     }
+
+    /**
+     * @return \Greppy\Pattern
+     */
+    public function digit()
+    {
+        $this->pattern .= "\d";
+        return $this;
+    }
 }

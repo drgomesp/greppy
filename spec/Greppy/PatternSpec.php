@@ -30,8 +30,17 @@ class PatternSpec extends ObjectBehavior
     /**
      * preg_match("/./", "123. abc ?=+")
      */
-    function it_should_be_possible_to_match_any_single_character()
+    function it_should_match_any_single_character()
     {
-        $this->any()->match("123. abc ?=+")->shouldReturn(true);
+        $this->any()->match("123")->shouldReturn(true);
+        $this->any()->match("abc")->shouldReturn(true);
+        $this->any()->match("?=+")->shouldReturn(true);
+    }
+    
+    function it_should_match_any_digit()
+    {
+        $this->digit()->match("1")->shouldReturn(true);   
+        $this->digit()->match("12")->shouldReturn(true);   
+        $this->digit()->match("123")->shouldReturn(true);   
     }
 }
