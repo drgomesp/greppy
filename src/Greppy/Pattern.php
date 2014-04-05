@@ -96,4 +96,21 @@ class Pattern
         $this->pattern .= sprintf("[%s-%s]", $from, $to);
         return $this;
     }
+
+    /**
+     * @param string $character
+     * @param int $min
+     * @param int $max
+     * @return \Greppy\Pattern
+     */
+    public function repetition($character, $min, $max = null)
+    {
+        if (is_null($max)) {
+            $this->pattern .= sprintf("%s{%s}", $character, $min);
+            return $this;    
+        }
+        
+        $this->pattern .= sprintf("%s{%s,%s}", $character, $min, $max);
+        return $this;
+    }
 }

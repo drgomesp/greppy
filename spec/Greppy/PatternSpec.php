@@ -67,4 +67,12 @@ class PatternSpec extends ObjectBehavior
         $this->range("a", "z")->match("any")->shouldReturn(true);
         $this->range("a", "z")->match("ANY")->shouldReturn(false);
     }
+    
+    function it_should_match_repetition()
+    {
+        $this->repetition("z", 4)->match("wazzzzup")->shouldReturn(true);
+        $this->repetition("z", 2, 4)->match("wazzzzup")->shouldReturn(true);
+        $this->repetition("z", 2, 4)->match("wazzzup")->shouldReturn(true);
+        $this->repetition("z", 2, 4)->match("wazup")->shouldReturn(false);
+    }
 }
