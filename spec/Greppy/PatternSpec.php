@@ -26,6 +26,14 @@ class PatternSpec extends ObjectBehavior
     {
         $this->shouldHaveType('Greppy\Pattern');
     }
+    
+    function it_should_dump_the_pattern()
+    {
+        $this->any()->dump()->shouldReturn("/./");
+        $this->digit()->dump()->shouldReturn("/\d/");
+        $this->exactly(".")->dump()->shouldReturn("/\./");
+        $this->exactly("c", "m", "f")->dump()->shouldReturn("/[cmf]/");
+    }
 
     function it_should_match_any_single_character()
     {

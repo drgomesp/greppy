@@ -113,4 +113,14 @@ class Pattern
         $this->pattern .= sprintf("%s{%s,%s}", $character, $min, $max);
         return $this;
     }
+
+    /**
+     * Dumps the pattern.
+     * 
+     * @return string
+     */
+    public function dump()
+    {
+        return sprintf("%s%s%s", self::DELIMITER_SLASH, $this->pattern, self::DELIMITER_SLASH);
+    }
 }
