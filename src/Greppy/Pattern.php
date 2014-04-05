@@ -85,4 +85,15 @@ class Pattern
         $this->pattern .= sprintf("\%s", $character);
         return $this;
     }
+
+    /**
+     * @param int|string $from
+     * @param int|string $to
+     * @return \Greppy\Pattern
+     */
+    public function range($from, $to)
+    {
+        $this->pattern .= sprintf("[%s-%s]", $from, $to);
+        return $this;
+    }
 }

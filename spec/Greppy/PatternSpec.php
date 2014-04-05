@@ -59,4 +59,12 @@ class PatternSpec extends ObjectBehavior
         $this->exactly($characters)->match("ran")->shouldReturn(false);
         $this->exactly($characters)->match("pan")->shouldReturn(false);
     }
+    
+    function it_should_match_range()
+    {
+        $this->range(0, 6)->match("3")->shouldReturn(true);
+        $this->range(4, 6)->match("3")->shouldReturn(false);
+        $this->range("a", "z")->match("any")->shouldReturn(true);
+        $this->range("a", "z")->match("ANY")->shouldReturn(false);
+    }
 }
