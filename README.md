@@ -8,7 +8,7 @@ Feature Guide
 ### Bootstrap
 
 ```php
-$p = new Greppy\Pattern;
+$p = new Greppy\Pattern();
 ```
 
 ### Matching any single character
@@ -19,7 +19,8 @@ preg_match("/./", "any"); // 1
 ```
 The Greppy way:
 ```php
-$p->any()->match("any"); // true
+$m = new Greppy\Matcher("any");
+$m->matches($p->any()); // true
 ```
 
 ### Matching any digit
@@ -30,10 +31,11 @@ preg_match("/\d/", "5"); // 1
 ```
 The Greppy way:
 ```php
-$p->digit()->match("5"); // true
+$m = new Greppy\Matcher("5");
+$m->matches($p->digit()); // true
 ```
 
-### Matching an exact character
+### Matching a literal
 
 The PHP way:
 ```php
@@ -41,10 +43,11 @@ preg_match("/e/", "hey"); // 1
 ```
 The Greppy way:
 ```php
-$p->exact("e")->match("hey"); // true
+$m = new Greppy\Matcher("hey");
+$m->matches($p->literal("e")); // true
 ```
 
-### Matching an exact group of characters
+### Matching a group of literals
 
 The PHP way:
 ```php
@@ -52,7 +55,8 @@ preg_match("/[abc]/", "anthem"); // 1
 ```
 The Greppy way:
 ```php
-$p->exact(array("a", "b", "c"))->match("anthem"); // true
+$m = new Greppy\Matcher("anthem");
+$m->matches($p->literal("a", "b", "c")); // true
 ```
 
 ### Matching a range
@@ -60,12 +64,11 @@ $p->exact(array("a", "b", "c"))->match("anthem"); // true
 The PHP way:
 ```php
 preg_match("/[a-z]/", "any"); // 1
-preg_match("/[4-6]/", "5"); // 1
 ```
 The Greppy way:
 ```php
-$p->range("a", "z")->match("any"); // true
-$p->range(4, 6)->match("5"); // true
+$m = new Greppy\Matcher("any");
+$m->matches($p->range("a", "z")); // true
 ```
 
 ### Matching a repetition
@@ -77,6 +80,9 @@ preg_match("/z{2,4}/", "wazzzzup"); // 1
 ```
 The Greppy way:
 ```php
-$p->repetition("z", 3)->match("wazzzup"); // true
-$p->repetition("z", 2, 4)->match("wazzzzup"); // true
+$m = new Greppy\Matcher("wazzzup");
+$m->matches($p->repetition("z", 3)); // true
+
+$m = new Greppy\Matcher("wazzzzup"); 
+$m->matches($p->repetition("z", 2, 4)); // true
 ```
