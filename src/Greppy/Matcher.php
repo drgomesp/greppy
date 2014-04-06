@@ -29,6 +29,10 @@ final class Matcher implements MatcherInterface
      */
     public function __construct($subject)
     {
+        if (!is_string($subject)) {
+            throw new \InvalidArgumentException(sprintf("Expected string subject, got %s.", $subject));
+        }
+        
         $this->subject = $subject;
     }
 

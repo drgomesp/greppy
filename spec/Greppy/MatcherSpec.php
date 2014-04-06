@@ -16,5 +16,20 @@ use PhpSpec\ObjectBehavior;
 
 class MatcherSpec extends ObjectBehavior
 {
+    function let()
+    {
+        $this->beConstructedWith("some subject string to match");
+    }
     
+    function it_is_initializable()
+    {
+        $this->shouldHaveType('Greppy\MatcherInterface');
+    }
+    
+    function it_should_not_be_constructed_with_non_string_subject()
+    {
+        $this->shouldThrow(
+            new \InvalidArgumentException("Expected string subject, got 1.")
+        )->during('__construct', array(1));
+    }
 }
