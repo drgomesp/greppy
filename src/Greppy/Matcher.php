@@ -43,7 +43,7 @@ final class Matcher implements MatcherInterface
     /**
      * {@inheritdoc}
      */
-    public function matches(Pattern $pattern)
+    public function matches(PatternInterface $pattern)
     {
         return (bool) preg_match((string) $pattern, $this->subject);
     }

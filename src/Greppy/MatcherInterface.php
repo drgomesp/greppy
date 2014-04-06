@@ -29,8 +29,8 @@ interface MatcherInterface
     /**
      * Checks if the subject matches the pattern.
      * 
-     * @param \Greppy\Pattern $pattern
+     * @param \Greppy\PatternInterface $pattern
      * @return bool
      */
-    public function matches(Pattern $pattern);
+    public function matches(PatternInterface $pattern);
 }
