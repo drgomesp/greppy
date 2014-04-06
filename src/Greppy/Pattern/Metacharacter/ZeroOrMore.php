@@ -11,7 +11,7 @@
  
 namespace Greppy\Pattern\Metacharacter;
 
-use Greppy\Pattern\Element;
+use Greppy\Pattern\ElementInterface;
 
 /**
  * Zero or more character.
@@ -19,7 +19,7 @@ use Greppy\Pattern\Element;
  * @author Daniel Ribeiro <drgomesp@gmail.com>
  * @package Greppy\Pattern\Metacharacter
  */
-class ZeroOrMore implements Element
+class ZeroOrMore implements ElementInterface
 {
     /**
      * Gets the string representation of the element for usage inside patterns.

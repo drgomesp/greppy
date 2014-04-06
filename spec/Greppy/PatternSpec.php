@@ -11,8 +11,8 @@
 
 namespace spec\Greppy;
 
-use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
+use PhpSpec\ObjectBehavior;
 
 class PatternSpec extends ObjectBehavior
 {

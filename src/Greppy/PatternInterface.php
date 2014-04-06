@@ -8,21 +8,21 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
- 
-namespace Greppy\Pattern;
+
+namespace Greppy;
 
 /**
- * Defines an interface for a pattern element.
+ * Defines an interface for a regex pattern.
  *
  * @author Daniel Ribeiro <drgomesp@gmail.com>
- * @package Greppy\Pattern
+ * @package Greppy
  */
-interface Element
+interface PatternInterface
 {
     /**
-     * Gets the string representation of the element for usage inside patterns.
+     * Dumps the pattern as a string.
      * 
-     * @return mixed
+     * @return string
      */
     public function __toString();
 }

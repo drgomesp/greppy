@@ -17,7 +17,7 @@ namespace Greppy;
  * @author Daniel Ribeiro <drgomesp@gmail.com>
  * @package Greppy
  */
-class Pattern
+class Pattern implements PatternInterface
 {
     /**
      * @var string
@@ -33,7 +33,16 @@ class Pattern
      * @var string
      */
     protected $pattern;
-    
+
+    /**
+     * {@inheritdoc}
+     */
+    public function __toString()
+    {
+        $delimiter = self::DELIMITER_SLASH;
+        return sprintf("%s%s%s", $delimiter, $this->pattern, $delimiter);
+    }
+
     /**
      * Ends the flow by matching an input string subject.
      * 
@@ -42,7 +51,8 @@ class Pattern
      */
     public function match($subject)
     {
-        $match = (bool) preg_match($this->assemblePattern(), $subject);
+        $matcher = new Matcher($subject);
+        $match = $matcher->matches($this);
         $this->pattern = null;
         return $match;
     }

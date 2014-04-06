@@ -9,25 +9,20 @@
  * file that was distributed with this source code.
  */
  
-namespace Greppy\Pattern\Metacharacter;
-
-use Greppy\Pattern\ElementInterface;
+namespace Greppy\Pattern;
 
 /**
- * Any character element.
+ * Defines an interface for a pattern element.
  *
  * @author Daniel Ribeiro <drgomesp@gmail.com>
- * @package Greppy\Pattern\Predefined
+ * @package Greppy\Pattern
  */
-class Any implements ElementInterface
+interface ElementInterface
 {
     /**
      * Gets the string representation of the element for usage inside patterns.
-     *
-     * @return string
+     * 
+     * @return mixed
      */
-    public function __toString()
-    {
-        return ".";
-    }
+    public function __toString();
 }
