@@ -26,6 +26,7 @@ final class Matcher implements MatcherInterface
 
     /**
      * @param string $subject The subject to match against
+     * @throws \InvalidArgumentException
      */
     public function __construct($subject)
     {
