@@ -11,6 +11,7 @@
 
 namespace spec\Greppy;
 
+use Greppy\PatternInterface;
 use Prophecy\Argument;
 use PhpSpec\ObjectBehavior;
 
@@ -18,7 +19,7 @@ class MatcherSpec extends ObjectBehavior
 {
     function let()
     {
-        $this->beConstructedWith("some subject string to match");
+        $this->beConstructedWith("subject");
     }
     
     function it_is_initializable()
@@ -31,5 +32,19 @@ class MatcherSpec extends ObjectBehavior
         $this->shouldThrow(
             new \InvalidArgumentException("Expected string subject, got 1.")
         )->during('__construct', array(1));
+    }
+    
+    function it_should_return_subject()
+    {
+        $this->getSubject()->shouldReturn("subject");
+    }
+    
+    function it_should_match_pattern_against_subject(PatternInterface $pattern)
+    {
+        $pattern->__toString()->willReturn("/./");
+        $this->matches($pattern)->shouldReturn(true);
+
+        $pattern->__toString()->willReturn("/different/");
+        $this->matches($pattern)->shouldReturn(false);
     }
 }

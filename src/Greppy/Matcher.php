@@ -50,7 +50,7 @@ final class Matcher implements MatcherInterface
      */
     public function matches(PatternInterface $pattern)
     {
-        return (bool) preg_match((string) $pattern, $this->subject);
+        return (bool) preg_match((string) $pattern, $this->getSubject());
     }
 }
  
