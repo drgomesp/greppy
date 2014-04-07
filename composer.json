@@ -1,6 +1,6 @@
 {
-    "name": "drgomesp/greppy",
-    "description": "The most awesome library for writing (humanized) regular expressions in PHP",
+    "name": "relaxphp/greppy",
+    "description": "Relax with this awesome library for easily writing beautiful regular expressions with PHP",
     "authors": [
         {
             "name": "Daniel Ribeiro",
