@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
  
-namespace Greppy\Pattern\Metacharacter;
+namespace Relax\Greppy\Pattern\Metacharacter;
 
-use Greppy\Pattern\ElementInterface;
+use Relax\Greppy\Pattern\ElementInterface;
 
 /**
- * One or more character.
+ * Digit character element 
  *
  * @author Daniel Ribeiro <drgomesp@gmail.com>
- * @package Greppy\Pattern\Metacharacter
+ * @package Relax\Greppy\Pattern\Metacharacter
  */
-class OneOrMore implements ElementInterface
+class Digit implements ElementInterface
 {
     /**
      * Gets the string representation of the element for usage inside patterns.
@@ -28,6 +28,6 @@ class OneOrMore implements ElementInterface
      */
     public function __toString()
     {
-        return "+";
+        return "\d";
     }
 }

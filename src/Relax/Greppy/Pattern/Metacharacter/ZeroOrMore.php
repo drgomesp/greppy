@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
  
-namespace Greppy\Pattern\Metacharacter;
+namespace Relax\Greppy\Pattern\Metacharacter;
 
-use Greppy\Pattern\ElementInterface;
+use Relax\Greppy\Pattern\ElementInterface;
 
 /**
  * Zero or more character.
  *
  * @author Daniel Ribeiro <drgomesp@gmail.com>
- * @package Greppy\Pattern\Metacharacter
+ * @package Relax\Greppy\Pattern\Metacharacter
  */
 class ZeroOrMore implements ElementInterface
 {

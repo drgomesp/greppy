@@ -9,25 +9,25 @@
  * file that was distributed with this source code.
  */
  
-namespace Greppy\Pattern\Metacharacter;
+namespace Relax\Greppy\Pattern\Metacharacter;
 
-use Greppy\Pattern\ElementInterface;
+use Relax\Greppy\Pattern\ElementInterface;
 
 /**
- * Digit character element 
+ * Any character element.
  *
  * @author Daniel Ribeiro <drgomesp@gmail.com>
- * @package Greppy\Pattern\Predefined
+ * @package Relax\Relax\Greppy\Pattern\Metacharacter
  */
-class Digit implements ElementInterface
+class Any implements ElementInterface
 {
     /**
      * Gets the string representation of the element for usage inside patterns.
      *
-     * @return mixed
+     * @return string
      */
     public function __toString()
     {
-        return "\d";
+        return ".";
     }
 }

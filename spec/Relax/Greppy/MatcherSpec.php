@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace spec\Greppy;
+namespace spec\Relax\Greppy;
 
-use Greppy\PatternInterface;
 use Prophecy\Argument;
 use PhpSpec\ObjectBehavior;
+use Relax\Greppy\PatternInterface;
 
 class MatcherSpec extends ObjectBehavior
 {
@@ -24,7 +24,7 @@ class MatcherSpec extends ObjectBehavior
     
     function it_is_initializable()
     {
-        $this->shouldHaveType('Greppy\MatcherInterface');
+        $this->shouldHaveType('Relax\Greppy\MatcherInterface');
     }
     
     function it_should_not_be_constructed_with_non_string_subject()

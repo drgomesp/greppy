@@ -9,20 +9,25 @@
  * file that was distributed with this source code.
  */
  
-namespace Greppy\Pattern;
+namespace Relax\Greppy\Pattern\Metacharacter;
+
+use Relax\Greppy\Pattern\ElementInterface;
 
 /**
- * Defines an interface for a pattern element.
+ * One or more character.
  *
  * @author Daniel Ribeiro <drgomesp@gmail.com>
- * @package Greppy\Pattern
+ * @package Relax\Greppy\Pattern\Metacharacter
  */
-interface ElementInterface
+class OneOrMore implements ElementInterface
 {
     /**
      * Gets the string representation of the element for usage inside patterns.
-     * 
+     *
      * @return mixed
      */
-    public function __toString();
+    public function __toString()
+    {
+        return "+";
+    }
 }

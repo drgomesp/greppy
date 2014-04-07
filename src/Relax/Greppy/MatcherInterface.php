@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Greppy;
+namespace Relax\Greppy;
 
 /**
  * Defines an interface for a regex matcher object.
@@ -29,7 +29,7 @@ interface MatcherInterface
     /**
      * Checks if the subject matches the pattern.
      * 
-     * @param \Greppy\PatternInterface $pattern
+     * @param \Relax\Greppy\PatternInterface $pattern
      * @return bool
      */
     public function matches(PatternInterface $pattern);

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Greppy;
+namespace Relax\Greppy;
 
 /**
  * Class Pattern
@@ -70,7 +70,7 @@ class Pattern implements PatternInterface
     }
 
     /**
-     * @return \Greppy\Pattern
+     * @return \Relax\Relax\Greppy\Pattern
      */
     public function any()
     {
@@ -79,7 +79,7 @@ class Pattern implements PatternInterface
     }
 
     /**
-     * @return \Greppy\Pattern
+     * @return \Relax\Relax\Greppy\Pattern
      */
     public function digit()
     {
@@ -88,7 +88,7 @@ class Pattern implements PatternInterface
     }
 
     /**
-     * @return \Greppy\Pattern
+     * @return \Relax\Relax\Greppy\Pattern
      */
     public function literal()
     {
@@ -108,7 +108,7 @@ class Pattern implements PatternInterface
     /**
      * @param int|string $from
      * @param int|string $to
-     * @return \Greppy\Pattern
+     * @return \Relax\Relax\Greppy\Pattern
      */
     public function range($from, $to)
     {
@@ -120,7 +120,7 @@ class Pattern implements PatternInterface
      * @param string $character
      * @param int $min
      * @param int $max
-     * @return \Greppy\Pattern
+     * @return \Relax\Greppy\Pattern
      */
     public function repetition($character, $min, $max = null)
     {

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Greppy;
+namespace Relax\Greppy;
 
 /**
  * Defines an interface for a regex pattern.

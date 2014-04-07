@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Greppy;
+namespace Relax\Greppy;
 
 /**
  * A basic regex matcher.
