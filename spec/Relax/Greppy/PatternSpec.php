@@ -25,50 +25,34 @@ class PatternSpec extends ObjectBehavior
     {
         $this->any()->digit()->literal("c", "m", "f")->__toString()->shouldReturn("/.\d[cmf]/");
     }
+    
+    function it_should_assemble_right_pattern_with_any()
+    {
+        $this->any()->__toString()->shouldReturn('/./');
+    }
 
-    function it_should_match_any_single_character()
+    function it_should_assemble_right_pattern_with_digit()
     {
-        $this->any()->match("a")->shouldReturn(true);
-        $this->any()->match("")->shouldReturn(false);
+        $this->digit()->__toString()->shouldReturn('/\d/');
     }
-    
-    function it_should_match_any_digit()
-    {
-        $this->digit()->match("1")->shouldReturn(true);
-        $this->digit()->match("12")->shouldReturn(true);
-        $this->digit()->match("123")->shouldReturn(true);
-    }
-    
-    function it_should_match_literal_character()
-    {
-        $this->literal(".")->match(".")->shouldReturn(true);
-        $this->literal(".")->match(",")->shouldReturn(false);
-    }
-    
-    function it_should_match_literal_characters()
-    {
-        $this->literal("c", "m", "f")->match("can")->shouldReturn(true);
-        $this->literal("c", "m", "f")->match("man")->shouldReturn(true);
-        $this->literal("c", "m", "f")->match("fan")->shouldReturn(true);
 
-        $this->literal("c", "m", "f")->match("dan")->shouldReturn(false);
-        $this->literal("c", "m", "f")->match("ran")->shouldReturn(false);
-        $this->literal("c", "m", "f")->match("pan")->shouldReturn(false);
-    }
-    
-    function it_should_match_range()
+    function it_should_assemble_right_pattern_with_literal()
     {
-        $this->range(0, 6)->match("3")->shouldReturn(true);
-        $this->range(4, 6)->match("3")->shouldReturn(false);
-        $this->range("a", "z")->match("any")->shouldReturn(true);
-        $this->range("a", "z")->match("ANY")->shouldReturn(false);
+        $this->literal("a")->__toString()->shouldReturn('/a/');
     }
-    
-    function it_should_match_repetition()
+
+    function it_should_assemble_right_pattern_with_literals()
     {
-        $this->repetition("z", 4)->match("wazzzzup")->shouldReturn(true);
-        $this->repetition("z", 2, 4)->match("wazzzzup")->shouldReturn(true);
-        $this->repetition("z", 2, 4)->match("wazzzup")->shouldReturn(true);
-        $this->repetition("z", 2, 4)->match("wazup")->shouldReturn(false);
+        $this->literal("a", "b", "c")->__toString()->shouldReturn('/[abc]/');
+    }
+
+    function it_should_assemble_right_pattern_with_range()
+    {
+        $this->range("a", "z")->__toString()->shouldReturn('/[a-z]/');
+    }
+
+    function it_should_assemble_right_pattern_with_repetition()
+    {
+        $this->repetition("z", 2, 4)->__toString()->shouldReturn('/z{2,4}/');
     }
 }
