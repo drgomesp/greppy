@@ -1,6 +1,6 @@
 Greppy
 ==================
-[![Build Status](https://travis-ci.org/RelaxPHP/Greppy.svg?branch=master)](https://travis-ci.org/RelaxPHP/Greppy)
+[![Build Status](https://travis-ci.org/drgomesp/Greppy.svg?branch=master)](https://travis-ci.org/drgomesp/Greppy)
 
 Feature Guide
 -------------
