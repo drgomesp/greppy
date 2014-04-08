@@ -10,8 +10,8 @@
  */
 
 namespace Relax\Greppy;
-use Relax\Greppy\Pattern\Metacharacter\Any;
-use Relax\Greppy\Pattern\Metacharacter\Digit;
+use Relax\Greppy\Pattern\Element\Metacharacter\Any;
+use Relax\Greppy\Pattern\Element\Metacharacter\Digit;
 
 /**
  * Class Pattern

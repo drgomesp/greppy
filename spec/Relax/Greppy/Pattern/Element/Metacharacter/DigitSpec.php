@@ -9,7 +9,7 @@
 * file that was distributed with this source code.
 */
 
-namespace spec\Relax\Greppy\Pattern\Metacharacter;
+namespace spec\Relax\Greppy\Pattern\Element\Metacharacter;
 
 use Prophecy\Argument;
 use PhpSpec\ObjectBehavior;
@@ -18,7 +18,7 @@ class DigitSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType('Relax\Greppy\Pattern\Metacharacter\Digit');
+        $this->shouldHaveType('Relax\Greppy\Pattern\Element\Metacharacter\Digit');
     }
 
     function it_should_be_castable_to_string()

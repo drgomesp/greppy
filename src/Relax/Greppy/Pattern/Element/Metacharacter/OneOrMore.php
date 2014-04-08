@@ -9,25 +9,25 @@
  * file that was distributed with this source code.
  */
  
-namespace Relax\Greppy\Pattern\Metacharacter;
+namespace Relax\Greppy\Pattern\Element\Metacharacter;
 
 use Relax\Greppy\Pattern\ElementInterface;
 
 /**
- * Any character element.
+ * One or more character.
  *
  * @author Daniel Ribeiro <drgomesp@gmail.com>
- * @package Relax\Relax\Greppy\Pattern\Metacharacter
+ * @package Relax\Greppy\Pattern\Element\Metacharacter
  */
-class Any implements ElementInterface
+class OneOrMore implements ElementInterface
 {
     /**
      * Gets the string representation of the element for usage inside patterns.
      *
-     * @return string
+     * @return mixed
      */
     public function __toString()
     {
-        return ".";
+        return "+";
     }
 }

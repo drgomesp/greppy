@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
  
-namespace Relax\Greppy\Pattern\Metacharacter;
+namespace Relax\Greppy\Pattern\Element\Metacharacter;
 
 use Relax\Greppy\Pattern\ElementInterface;
 
 /**
- * Digit character element 
+ * Zero or more character.
  *
  * @author Daniel Ribeiro <drgomesp@gmail.com>
- * @package Relax\Greppy\Pattern\Metacharacter
+ * @package Relax\Greppy\Pattern\Element\Metacharacter
  */
-class Digit implements ElementInterface
+class ZeroOrMore implements ElementInterface
 {
     /**
      * Gets the string representation of the element for usage inside patterns.
@@ -28,6 +28,6 @@ class Digit implements ElementInterface
      */
     public function __toString()
     {
-        return "\d";
+        return "*";
     }
 }
