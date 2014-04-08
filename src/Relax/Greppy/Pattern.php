@@ -10,6 +10,8 @@
  */
 
 namespace Relax\Greppy;
+use Relax\Greppy\Pattern\Metacharacter\Any;
+use Relax\Greppy\Pattern\Metacharacter\Digit;
 
 /**
  * Class Pattern
@@ -44,37 +46,11 @@ class Pattern implements PatternInterface
     }
 
     /**
-     * Ends the flow by matching an input string subject.
-     * 
-     * @param string $subject
-     * @return bool 
-     */
-    public function match($subject)
-    {
-        $matcher = new Matcher($subject);
-        $match = $matcher->matches($this);
-        $this->pattern = null;
-        return $match;
-    }
-
-    /**
-     * Dumps the pattern.
-     *
-     * @return string
-     */
-    public function dump()
-    {
-        $pattern = $this->assemblePattern();
-        $this->pattern = null;
-        return $pattern;
-    }
-
-    /**
      * @return \Relax\Greppy\Pattern
      */
     public function any()
     {
-        $this->pattern .= ".";
+        $this->pattern .= new Any();
         return $this;
     }
 
@@ -83,7 +59,7 @@ class Pattern implements PatternInterface
      */
     public function digit()
     {
-        $this->pattern .= "\d";
+        $this->pattern .= new Digit();
         return $this;
     }
 
@@ -131,13 +107,5 @@ class Pattern implements PatternInterface
         
         $this->pattern .= sprintf("%s{%s,%s}", $character, $min, $max);
         return $this;
-    }
-
-    /**
-     * @return string
-     */
-    protected function assemblePattern()
-    {
-        return sprintf("%s%s%s", self::DELIMITER_SLASH, $this->pattern, self::DELIMITER_SLASH);
     }
 }
