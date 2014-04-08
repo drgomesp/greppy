@@ -39,8 +39,8 @@ class Pattern implements PatternInterface
      */
     public function __toString()
     {
-        $delimiter = self::DELIMITER_SLASH;
-        return sprintf("%s%s%s", $delimiter, $this->pattern, $delimiter);
+        $pattern = sprintf("%s%s%s", self::DELIMITER_SLASH, $this->pattern, self::DELIMITER_SLASH);
+        return $pattern;
     }
 
     /**
@@ -70,7 +70,7 @@ class Pattern implements PatternInterface
     }
 
     /**
-     * @return \Relax\Relax\Greppy\Pattern
+     * @return \Relax\Greppy\Pattern
      */
     public function any()
     {
@@ -79,7 +79,7 @@ class Pattern implements PatternInterface
     }
 
     /**
-     * @return \Relax\Relax\Greppy\Pattern
+     * @return \Relax\Greppy\Pattern
      */
     public function digit()
     {
@@ -88,7 +88,7 @@ class Pattern implements PatternInterface
     }
 
     /**
-     * @return \Relax\Relax\Greppy\Pattern
+     * @return \Relax\Greppy\Pattern
      */
     public function literal()
     {
@@ -108,7 +108,7 @@ class Pattern implements PatternInterface
     /**
      * @param int|string $from
      * @param int|string $to
-     * @return \Relax\Relax\Greppy\Pattern
+     * @return \Relax\Greppy\Pattern
      */
     public function range($from, $to)
     {

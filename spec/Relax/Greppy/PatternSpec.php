@@ -21,12 +21,9 @@ class PatternSpec extends ObjectBehavior
         $this->shouldHaveType('Relax\Greppy\Pattern');
     }
     
-    function it_should_dump_the_pattern()
+    function it_should_be_castable_to_string()
     {
-        $this->any()->dump()->shouldReturn("/./");
-        $this->digit()->dump()->shouldReturn("/\d/");
-        $this->literal("@")->dump()->shouldReturn("/\@/");
-        $this->literal("c", "m", "f")->dump()->shouldReturn("/[cmf]/");
+        $this->any()->digit()->literal("c", "m", "f")->__toString()->shouldReturn("/.\d[cmf]/");
     }
 
     function it_should_match_any_single_character()
