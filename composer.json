@@ -1,6 +1,7 @@
 {
     "name": "relaxphp/greppy",
     "description": "Relax with this awesome library for working with regular expressions with PHP",
+    "license": "MIT",
     "authors": [
         {
             "name": "Daniel Ribeiro",
