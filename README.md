@@ -11,7 +11,44 @@ Feature Guide
 $p = new Greppy\Pattern();
 ```
 
-### Matching any single character
+### Custom pattern objects
+
+With Greppy, you can define pattern objects – types – to easily define, reuse and maintain common
+patterns used in web applications.
+
+If you use regex to match domain, for instance, instead of doing:
+
+```php
+preg_match("/^(http|https|ftp)://([A-Z0-9][A-Z0-9_-]*(?:.[A-Z0-9][A-Z0-9_-]*)+):?(d+)?/?/i", $subject);
+```
+
+You may define a `DomainPattern` type, such as:
+ 
+```php
+namespace Your\Namespace;
+
+use Relax\Greppy\PatternInterface;
+
+class DomainPattern implements PatternInterface
+{
+    public function __toString()
+    {
+        return "/^(http|https|ftp)://([A-Z0-9][A-Z0-9_-]*(?:.[A-Z0-9][A-Z0-9_-]*)+):?(d+)?/?/";
+    }
+}
+```
+
+And use it like this:
+ 
+```php
+$domain = new Your\Namespace\DomainPattern();
+$m = new Greppy\Matcher("http://www.google.com");
+$m->caseless()->matches($domain); // true
+```
+
+### The predefined Pattern object
+
+#### Matching any single character
 
 The PHP way:
 ```php
@@ -23,7 +60,7 @@ $m = new Greppy\Matcher("any");
 $m->matches($p->any()); // true
 ```
 
-### Matching any digit
+#### Matching any digit
 
 The PHP way:
 ```php
@@ -35,7 +72,7 @@ $m = new Greppy\Matcher("5");
 $m->matches($p->digit()); // true
 ```
 
-### Matching a literal
+#### Matching a literal
 
 The PHP way:
 ```php
@@ -47,7 +84,7 @@ $m = new Greppy\Matcher("hey");
 $m->matches($p->literal("e")); // true
 ```
 
-### Matching a group of literals
+#### Matching a group of literals
 
 The PHP way:
 ```php
@@ -59,7 +96,7 @@ $m = new Greppy\Matcher("anthem");
 $m->matches($p->literal("a", "b", "c")); // true
 ```
 
-### Matching a range
+#### Matching a range
 
 The PHP way:
 ```php
@@ -71,7 +108,7 @@ $m = new Greppy\Matcher("any");
 $m->matches($p->range("a", "z")); // true
 ```
 
-### Matching a repetition
+#### Matching a repetition
 
 The PHP way:
 ```php
