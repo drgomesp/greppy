@@ -4,6 +4,7 @@ Greppy
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/drgomesp/Greppy/badges/quality-score.png?s=2ee65804cbc0c223711d96c14367dd37a202824d)](https://scrutinizer-ci.com/g/drgomesp/Greppy/)
 [![Latest Unstable Version](https://poser.pugx.org/relaxphp/greppy/v/unstable.png)](https://packagist.org/packages/relaxphp/greppy) 
 [![License](https://poser.pugx.org/relaxphp/greppy/license.png)](https://packagist.org/packages/relaxphp/greppy)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/4aec493b-b7f3-4e43-8412-361b84a32c6f/mini.png)](https://insight.sensiolabs.com/projects/4aec493b-b7f3-4e43-8412-361b84a32c6f/mini.png)
 
 Why use Greppy?
 -------------
