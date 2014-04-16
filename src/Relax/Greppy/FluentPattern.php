@@ -20,7 +20,7 @@ use Relax\Greppy\Pattern\Element\Metacharacter\Digit;
  * @author Daniel Ribeiro <drgomesp@gmail.com>
  * @package Greppy
  */
-class FluentPattern implements Pattern
+final class FluentPattern implements Pattern
 {
     /**
      * @var string
