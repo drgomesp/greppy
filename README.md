@@ -5,13 +5,19 @@ Greppy
 [![Latest Unstable Version](https://poser.pugx.org/relaxphp/greppy/v/unstable.png)](https://packagist.org/packages/relaxphp/greppy) 
 [![License](https://poser.pugx.org/relaxphp/greppy/license.png)](https://packagist.org/packages/relaxphp/greppy)
 
+Why use Greppy?
+-------------
+- Isolate your regex patterns and matching so they can be easily mocked inside unit tests
+- Represent important and recurrent patterns with custom pattern classes
+- Write more human-readable regular expressions with a fluent API using the `FluentPattern` object.
+
 Feature Guide
 -------------
 
 ### Bootstrap
 
 ```php
-$p = new Greppy\Pattern();
+$p = new Relax\Greppy\Pattern();
 ```
 
 ### Custom pattern objects
@@ -30,9 +36,9 @@ You may define a `DomainPattern` type, such as:
 ```php
 namespace Your\Namespace;
 
-use Relax\Greppy\PatternInterface;
+use Relax\Greppy\Pattern;
 
-class DomainPattern implements PatternInterface
+class DomainPattern implements Pattern
 {
     public function __toString()
     {
@@ -45,7 +51,7 @@ And use it like this:
  
 ```php
 $domain = new Your\Namespace\DomainPattern();
-$m = new Greppy\Matcher("http://www.google.com");
+$m = new Relax\Greppy\SimpleMatcher("http://www.google.com");
 $m->caseless()->matches($domain); // true
 ```
 
@@ -59,7 +65,7 @@ preg_match("/./", "any"); // 1
 ```
 The Greppy way:
 ```php
-$m = new Greppy\Matcher("any");
+$m = new Relax\Greppy\SimpleMatcher("any");
 $m->matches($p->any()); // true
 ```
 
@@ -71,7 +77,7 @@ preg_match("/\d/", "5"); // 1
 ```
 The Greppy way:
 ```php
-$m = new Greppy\Matcher("5");
+$m = new Relax\Greppy\SimpleMatcher("5");
 $m->matches($p->digit()); // true
 ```
 
@@ -83,7 +89,7 @@ preg_match("/e/", "hey"); // 1
 ```
 The Greppy way:
 ```php
-$m = new Greppy\Matcher("hey");
+$m = new Relax\Greppy\SimpleMatcher("hey");
 $m->matches($p->literal("e")); // true
 ```
 
@@ -95,7 +101,7 @@ preg_match("/[abc]/", "anthem"); // 1
 ```
 The Greppy way:
 ```php
-$m = new Greppy\Matcher("anthem");
+$m = new Relax\Greppy\SimpleMatcher("anthem");
 $m->matches($p->literal("a", "b", "c")); // true
 ```
 
@@ -107,7 +113,7 @@ preg_match("/[a-z]/", "any"); // 1
 ```
 The Greppy way:
 ```php
-$m = new Greppy\Matcher("any");
+$m = new Relax\Greppy\SimpleMatcher("any");
 $m->matches($p->range("a", "z")); // true
 ```
 
@@ -120,9 +126,9 @@ preg_match("/z{2,4}/", "wazzzzup"); // 1
 ```
 The Greppy way:
 ```php
-$m = new Greppy\Matcher("wazzzup");
+$m = new Relax\Greppy\SimpleMatcher("wazzzup");
 $m->matches($p->repetition("z", 3)); // true
 
-$m = new Greppy\Matcher("wazzzzup"); 
+$m = new Relax\Greppy\SimpleMatcher("wazzzzup"); 
 $m->matches($p->repetition("z", 2, 4)); // true
 ```
