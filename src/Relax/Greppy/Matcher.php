@@ -12,45 +12,25 @@
 namespace Relax\Greppy;
 
 /**
- * A basic regex matcher.
+ * Defines an interface for a regex matcher object.
  *
  * @author Daniel Ribeiro <drgomesp@gmail.com>
  * @package Greppy
  */
-final class Matcher implements MatcherInterface
+interface Matcher
 {
     /**
-     * @var string
+     * Get the subject to match against.
+     * 
+     * @return string
      */
-    private $subject;
-
+    public function getSubject();
+    
     /**
-     * @param string $subject The subject to match against
-     * @throws \InvalidArgumentException
+     * Checks if the subject matches the pattern.
+     * 
+     * @param \Relax\Greppy\Pattern $pattern
+     * @return bool
      */
-    public function __construct($subject)
-    {
-        if (!is_string($subject)) {
-            throw new \InvalidArgumentException(sprintf("Expected string subject, got %s.", $subject));
-        }
-        
-        $this->subject = $subject;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getSubject()
-    {
-        return $this->subject;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function matches(PatternInterface $pattern)
-    {
-        return (bool) preg_match((string) $pattern, $this->getSubject());
-    }
+    public function matches(Pattern $pattern);
 }
- 

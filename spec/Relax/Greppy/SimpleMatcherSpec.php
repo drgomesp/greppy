@@ -13,9 +13,9 @@ namespace spec\Relax\Greppy;
 
 use Prophecy\Argument;
 use PhpSpec\ObjectBehavior;
-use Relax\Greppy\PatternInterface;
+use Relax\Greppy\Pattern;
 
-class MatcherSpec extends ObjectBehavior
+class SimpleMatcherSpec extends ObjectBehavior
 {
     function let()
     {
@@ -24,7 +24,7 @@ class MatcherSpec extends ObjectBehavior
     
     function it_is_initializable()
     {
-        $this->shouldHaveType('Relax\Greppy\MatcherInterface');
+        $this->shouldHaveType('Relax\Greppy\Matcher');
     }
     
     function it_should_not_be_constructed_with_non_string_subject()
@@ -39,7 +39,7 @@ class MatcherSpec extends ObjectBehavior
         $this->getSubject()->shouldReturn("subject");
     }
     
-    function it_should_match_pattern_against_subject(PatternInterface $pattern)
+    function it_should_match_pattern_against_subject(Pattern $pattern)
     {
         $pattern->__toString()->willReturn("/./");
         $this->matches($pattern)->shouldReturn(true);
