@@ -4,7 +4,7 @@ Greppy
 
 >Greppy is going to be phased away in favor of the [PHPVerbalExpressions](https://github.com/VerbalExpressions/PHPVerbalExpressions) project.
 
-[![Build Status](https://travis-ci.org/drgomesp/Greppy.svg?branch=master)](https://travis-ci.org/drgomesp/greppy)
+[![Build Status](https://travis-ci.org/drgomesp/greppy.svg?branch=master)](https://travis-ci.org/drgomesp/greppy)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/drgomesp/Greppy/badges/quality-score.png?s=2ee65804cbc0c223711d96c14367dd37a202824d)](https://scrutinizer-ci.com/g/drgomesp/Greppy/)
 [![Latest Unstable Version](https://poser.pugx.org/relaxphp/greppy/v/unstable.png)](https://packagist.org/packages/relaxphp/greppy) 
 [![License](https://poser.pugx.org/relaxphp/greppy/license.png)](https://packagist.org/packages/relaxphp/greppy)
